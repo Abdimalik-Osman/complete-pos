@@ -38,8 +38,7 @@ app.get("/g", (req, res) => {
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 // });
-app.use(errorHandlerMiddleware);
-app.use(notFoundMiddleware);
+
 
 app.use(express.static(path.join(__dirname, "./client/build")));
 
@@ -48,7 +47,8 @@ app.get('*', function (request, response) {
 })
 
 
-
+app.use(errorHandlerMiddleware);
+app.use(notFoundMiddleware);
 
 const port = process.env.PORT || 7000;
 app.listen(port, () => {
