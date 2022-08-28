@@ -51,7 +51,7 @@ export const AppProvider = ({ children }) => {
   axios.defaults.headers.common.Authorization = `Bearer ${state.token}`;
 
   const authFetch = axios.create({
-    baseURL: 'http://localhost:9000/api/v1/',
+    baseURL: 'https://muscab-pos-man.herokuapp.com/api/v1/',
   });
 
   authFetch.interceptors.request.use(
@@ -111,7 +111,7 @@ export const AppProvider = ({ children }) => {
         data: { data },
 
         msg,
-      } = await axios.post('http://localhost:9000/api/v1/auth/login', loginInfo);
+      } = await axios.post('https://muscab-pos-man.herokuapp.com/api/v1/auth/login', loginInfo);
 
       const res = data.data;
       const token = data.token;
