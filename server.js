@@ -30,7 +30,7 @@ app.use(express.json());
 connectDB();
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 // app.use(express.static(path.join(__dirname, "./client/build")));
-
+const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/products", authorization, expenseRouter);
 app.use("/api/v1/bills", authorization, bill);
@@ -55,9 +55,7 @@ if(process.env.NODE_ENV==='production')
 }
 
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "all/client/build", "index.html"));
-// });
+
 const port = process.env.PORT || 7000;
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);
