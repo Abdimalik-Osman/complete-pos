@@ -54,7 +54,7 @@ export default function Bills() {
   React.useEffect(() => {
     readBill()
     console.log('call the effect hoooooooooooooook')
-  }, [bills])
+  }, [])
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
  
