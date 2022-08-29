@@ -17,7 +17,7 @@ const createProduct = async (req, res) => {
   });
 };
 const readProducts = async (req, res) => {
-  const products = await productModal.find({});
+  const products = await productModal.find({createdBy:req.user.userId});
   res.json({
     status: "success",
     data: {

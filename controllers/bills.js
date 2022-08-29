@@ -9,7 +9,7 @@ const createBill = async (req, res) => {
     // }
 
     // req.body.createdBy = req.user.userId;
-    const billInfo = await Bills.create( { waiter, table, totalPrice, cartItems, numberOfRes, user } );
+    const billInfo = await Bills.create( { waiter, table, totalPrice, cartItems, numberOfRes, user , createdBy :req.user.userId} );
     console.log(req.body);
     res.json({
         status: "success",
@@ -20,7 +20,7 @@ const createBill = async (req, res) => {
 };
 const getBills = async (req, res) => {
    
-    const billInfo = await Bills.find().sort({createdAt:-1})
+    const billInfo = await Bills.find({createdBy:req.user.userId}).sort({createdAt:-1})
     console.log(req.body);
     res.json({
         status: "success",
