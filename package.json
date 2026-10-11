@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^0.34.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.2.0",
     "colors": "^1.4.0",
